@@ -157,3 +157,17 @@ def run_analysis():
             text_meta.delete("1.0", tk.END)
             text_meta.insert(tk.END, f"Metadata read error: {ex}")
 
+
+        # ELA
+        try:
+            ela = error_level_analysis(img_path)
+            ela_resized = ela.resize(PREVIEW_SIZE, Image.LANCZOS)
+            ela_tk = ImageTk.PhotoImage(ela_resized)
+            lbl_ela.config(image=ela_tk)
+            lbl_ela.image = ela_tk
+            ela.save(f"ELA_{os.path.basename(img_path)}")
+        except Exception as ex:
+            messagebox.showerror("ELA Error", f"Error during ELA: {ex}")
+            lbl_ela.config(image=blank_tk)
+            lbl_ela.image = blank_tk
+

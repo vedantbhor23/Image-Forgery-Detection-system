@@ -144,3 +144,16 @@ def run_analysis():
         lbl_status.config(text=f"Analyzing ({idx}/{len(selected_images)}): {os.path.basename(img_path)}", fg="#ffbe0b")
         root.update_idletasks()
 
+        # metadata
+        try:
+            meta = metadata_analysis(img_path)
+            text_meta.delete("1.0", tk.END)
+            if meta:
+                for k, v in meta.items():
+                    text_meta.insert(tk.END, f"{k}: {v}\n")
+            else:
+                text_meta.insert(tk.END, "No metadata found or stripped from image.")
+        except Exception as ex:
+            text_meta.delete("1.0", tk.END)
+            text_meta.insert(tk.END, f"Metadata read error: {ex}")
+

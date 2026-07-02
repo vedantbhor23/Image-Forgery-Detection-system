@@ -93,3 +93,11 @@ lbl_edges.grid(row=0, column=2, padx=12)
 tk.Label(frame_display, text="Original", bg="#1c1a17", fg="#f4a261", font=("Arial", 12, "bold")).grid(row=1, column=0, pady=6)
 tk.Label(frame_display, text="ELA Result", bg="#1c1a17", fg="#f4a261", font=("Arial", 12, "bold")).grid(row=1, column=1, pady=6)
 tk.Label(frame_display, text="Edges Result", bg="#1c1a17", fg="#f4a261", font=("Arial", 12, "bold")).grid(row=1, column=2, pady=6)
+
+
+# ------------------------ METADATA BOX ------------------------
+frame_meta = tk.LabelFrame(root, text="📋 Metadata Information", bg="#1c1a17", fg="#f4a261", font=("Arial", 14, "bold"))
+frame_meta.pack(fill="both", expand=False, padx=18, pady=12)
+
+text_meta = tk.Text(frame_meta, height=6, bg="#2b2a27", fg="white", font=("Consolas", 11))
+text_meta.pack(fill="both", expand=True, padx=8, pady=8)

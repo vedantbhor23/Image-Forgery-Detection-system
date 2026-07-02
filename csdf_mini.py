@@ -69,3 +69,27 @@ frame_buttons = tk.Frame(root, bg="#1c1a17")
 frame_buttons.pack(pady=6)
 
 selected_images = []  # store multiple paths
+
+
+# ------------------------ IMAGE PANELS ------------------------
+frame_display = tk.Frame(root, bg="#1c1a17")
+frame_display.pack(pady=10)
+
+blank = Image.new("RGB", PREVIEW_SIZE, (45, 42, 37))
+blank_tk = ImageTk.PhotoImage(blank)
+
+lbl_original = tk.Label(frame_display, image=blank_tk, bg="#2b2a27")
+lbl_original.image = blank_tk
+lbl_original.grid(row=0, column=0, padx=12)
+
+lbl_ela = tk.Label(frame_display, image=blank_tk, bg="#2b2a27")
+lbl_ela.image = blank_tk
+lbl_ela.grid(row=0, column=1, padx=12)
+
+lbl_edges = tk.Label(frame_display, image=blank_tk, bg="#2b2a27")
+lbl_edges.image = blank_tk
+lbl_edges.grid(row=0, column=2, padx=12)
+
+tk.Label(frame_display, text="Original", bg="#1c1a17", fg="#f4a261", font=("Arial", 12, "bold")).grid(row=1, column=0, pady=6)
+tk.Label(frame_display, text="ELA Result", bg="#1c1a17", fg="#f4a261", font=("Arial", 12, "bold")).grid(row=1, column=1, pady=6)
+tk.Label(frame_display, text="Edges Result", bg="#1c1a17", fg="#f4a261", font=("Arial", 12, "bold")).grid(row=1, column=2, pady=6)

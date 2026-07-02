@@ -202,3 +202,14 @@ btn_style = {
     "pady": 8,
     "cursor": "hand2"
 }
+
+btn_select = tk.Button(frame_buttons, text="📁 Select Images", command=browse_images, **btn_style)
+btn_select.grid(row=0, column=0, padx=12)
+btn_select.bind("<Enter>", on_enter); btn_select.bind("<Leave>", on_leave)
+
+btn_run = tk.Button(frame_buttons, text="🔎 Run Analysis", command=run_analysis, **btn_style)
+btn_run.grid(row=0, column=1, padx=12)
+btn_run.bind("<Enter>", on_enter); btn_run.bind("<Leave>", on_leave)
+
+# Start GUI
+root.mainloop()

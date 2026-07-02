@@ -101,3 +101,12 @@ frame_meta.pack(fill="both", expand=False, padx=18, pady=12)
 
 text_meta = tk.Text(frame_meta, height=6, bg="#2b2a27", fg="white", font=("Consolas", 11))
 text_meta.pack(fill="both", expand=True, padx=8, pady=8)
+
+
+# ------------------------ STATUS & FOOTER ------------------------
+lbl_status = tk.Label(root, text="No image selected", bg="#1c1a17", fg="#e9c46a", font=("Arial", 11, "italic"))
+lbl_status.pack(pady=6)
+
+footer = tk.Label(root, text="Developed by Vedant Bhor 💻",
+                  bg="#1c1a17", fg="#f4a261", font=("Arial", 10, "italic"))
+footer.pack(side="bottom", fill="x", pady=8)

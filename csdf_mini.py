@@ -171,3 +171,19 @@ def run_analysis():
             lbl_ela.config(image=blank_tk)
             lbl_ela.image = blank_tk
 
+
+        # Edges
+        try:
+            edges = edge_analysis(img_path)
+            edges_resized = edges.resize(PREVIEW_SIZE, Image.LANCZOS)
+            edges_tk = ImageTk.PhotoImage(edges_resized)
+            lbl_edges.config(image=edges_tk)
+            lbl_edges.image = edges_tk
+            edges.save(f"Edges_{os.path.basename(img_path)}")
+        except Exception as ex:
+            messagebox.showerror("Edges Error", f"Error during edge detection: {ex}")
+            lbl_edges.config(image=blank_tk)
+            lbl_edges.image = blank_tk
+
+    lbl_status.config(text="✅ Analysis completed for all selected images!", fg="#f4a261")
+

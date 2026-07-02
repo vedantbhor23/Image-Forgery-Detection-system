@@ -110,3 +110,16 @@ lbl_status.pack(pady=6)
 footer = tk.Label(root, text="Developed by Vedant Bhor 💻",
                   bg="#1c1a17", fg="#f4a261", font=("Arial", 10, "italic"))
 footer.pack(side="bottom", fill="x", pady=8)
+
+
+# ------------------------ BUTTON BEHAVIOR ------------------------
+def browse_images():
+    global selected_images
+    paths = filedialog.askopenfilenames(title="Select one or more images",
+                                        filetypes=[("Image files", "*.jpg *.jpeg *.png *.bmp")])
+    if not paths:
+        return
+    selected_images = list(paths)
+    lbl_status.config(text=f"{len(selected_images)} image(s) selected", fg="#e76f51")
+    text_meta.delete("1.0", tk.END)
+

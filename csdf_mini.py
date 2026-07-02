@@ -123,3 +123,24 @@ def browse_images():
     lbl_status.config(text=f"{len(selected_images)} image(s) selected", fg="#e76f51")
     text_meta.delete("1.0", tk.END)
 
+
+    # preview first image
+    try:
+        img = Image.open(selected_images[0]).convert("RGB").resize(PREVIEW_SIZE, Image.LANCZOS)
+        tkimg = ImageTk.PhotoImage(img)
+        lbl_original.config(image=tkimg)
+        lbl_original.image = tkimg
+    except Exception as ex:
+        messagebox.showerror("Error", f"Failed to open image: {ex}")
+        selected_images = []
+
+def run_analysis():
+    global selected_images
+    if not selected_images:
+        messagebox.showwarning("No image", "Please select one or more images first.")
+        return
+
+    for idx, img_path in enumerate(selected_images, start=1):
+        lbl_status.config(text=f"Analyzing ({idx}/{len(selected_images)}): {os.path.basename(img_path)}", fg="#ffbe0b")
+        root.update_idletasks()
+

@@ -187,3 +187,18 @@ def run_analysis():
 
     lbl_status.config(text="✅ Analysis completed for all selected images!", fg="#f4a261")
 
+# Hover effects
+def on_enter(e):
+    e.widget.config(bg="#e76f51", fg="white")
+def on_leave(e):
+    e.widget.config(bg="#f4a261", fg="#1c1a17")
+
+btn_style = {
+    "font": ("Arial", 13, "bold"),
+    "bg": "#f4a261",
+    "fg": "#1c1a17",
+    "relief": "flat",
+    "padx": 16,
+    "pady": 8,
+    "cursor": "hand2"
+}
